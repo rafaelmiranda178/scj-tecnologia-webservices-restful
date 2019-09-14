@@ -3,24 +3,25 @@ package fiap.scj.modulo1.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @Entity
-@Table(name = "products")
+@Table(name = "products_details")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product implements Serializable {
+public class ProductDetails implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String name;
+    private String key;
     private String description;
-    private Double price;
+
+    @ManyToOne
+    private Product product;
 
 }
